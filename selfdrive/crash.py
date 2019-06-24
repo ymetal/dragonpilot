@@ -30,7 +30,7 @@ else:
     error_tags['email'] = auth['email']
   except:
     pass
-  client = Client('https://980a0cba712a4c3593c33c78a12446e1@sentry.io/1488600',
+  client = Client('https://980a0cba712a4c3593c33c78a12446e1:fecab286bcaf4dba8b04f7cff0188e2d@sentry.io/1488600',
                   install_sys_hook=False, transport=HTTPTransport, release=version, tags=error_tags)
   try:
     client.user_context(error_tags['username'])
