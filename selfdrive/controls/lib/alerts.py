@@ -1,3 +1,5 @@
+# This Python file uses the following encoding: utf-8
+# -*- coding: utf-8 -*-
 from cereal import car, log
 
 # Priority
@@ -75,148 +77,148 @@ ALERTS = [
 
   Alert(
       "fcw",
-      "BRAKE!",
-      "Risk of Collision",
+      "剎車!",
+      "有碰撞的風險",
       AlertStatus.critical, AlertSize.full,
       Priority.HIGHEST, VisualAlert.fcw, AudibleAlert.chimeWarningRepeat, 1., 2., 2.),
 
   Alert(
       "steerSaturated",
-      "TAKE CONTROL",
-      "Turn Exceeds Steering Limit",
+      "接管控制",
+      "彎道超過方向盤轉向限制",
       AlertStatus.userPrompt, AlertSize.mid,
       Priority.LOW, VisualAlert.steerRequired, AudibleAlert.chimePrompt, 1., 2., 3.),
 
   Alert(
       "steerTempUnavailable",
-      "TAKE CONTROL",
-      "Steering Temporarily Unavailable",
+      "接管控制",
+      "轉向控制暫時失效",
       AlertStatus.userPrompt, AlertSize.mid,
       Priority.LOW, VisualAlert.steerRequired, AudibleAlert.chimeWarning1, .4, 2., 3.),
 
   Alert(
       "steerTempUnavailableMute",
-      "TAKE CONTROL",
-      "Steering Temporarily Unavailable",
+      "接管控制",
+      "轉向控制暫時失效",
       AlertStatus.userPrompt, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.none, .2, .2, .2),
 
   Alert(
       "preDriverDistracted",
-      "KEEP EYES ON ROAD: User Appears Distracted",
+      "注意路況: 駕駛出現分心",
       "",
       AlertStatus.normal, AlertSize.small,
       Priority.LOW, VisualAlert.steerRequired, AudibleAlert.none, .0, .1, .1, alert_rate=0.75),
 
   Alert(
       "promptDriverDistracted",
-      "KEEP EYES ON ROAD",
-      "User Appears Distracted",
+      "注意路況",
+      "駕駛出現分心",
       AlertStatus.userPrompt, AlertSize.mid,
       Priority.MID, VisualAlert.steerRequired, AudibleAlert.chimeWarning2, .1, .1, .1),
 
   Alert(
       "driverDistracted",
-      "DISENGAGE IMMEDIATELY",
-      "User Was Distracted",
+      "立即解除",
+      "駕駛出現分心",
       AlertStatus.critical, AlertSize.full,
       Priority.HIGH, VisualAlert.steerRequired, AudibleAlert.chimeWarningRepeat, .1, .1, .1),
 
   Alert(
       "preDriverUnresponsive",
-      "TOUCH STEERING WHEEL: No Driver Monitoring",
+      "觸碰方向盤: 無駕駛監控",
       "",
       AlertStatus.normal, AlertSize.small,
       Priority.LOW, VisualAlert.steerRequired, AudibleAlert.none, .0, .1, .1, alert_rate=0.75),
 
   Alert(
       "promptDriverUnresponsive",
-      "TOUCH STEERING WHEEL",
-      "User Is Unresponsive",
+      "觸碰方向盤",
+      "駕駛沒有反應",
       AlertStatus.userPrompt, AlertSize.mid,
       Priority.MID, VisualAlert.steerRequired, AudibleAlert.chimeWarning2, .1, .1, .1),
 
   Alert(
       "driverUnresponsive",
-      "DISENGAGE IMMEDIATELY",
-      "User Was Unresponsive",
+      "立即解除",
+      "駕駛沒有反應",
       AlertStatus.critical, AlertSize.full,
       Priority.HIGH, VisualAlert.steerRequired, AudibleAlert.chimeWarningRepeat, .1, .1, .1),
 
   Alert(
       "driverMonitorOff",
-      "DRIVER MONITOR IS UNAVAILABLE",
-      "Accuracy Is Low",
+      "駕駛監控暫時停用",
+      "監控準確率: 低",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.none, .4, 0., 4.),
 
   Alert(
       "driverMonitorOn",
-      "DRIVER MONITOR IS AVAILABLE",
-      "Accuracy Is High",
+      "駕駛監控已啟用",
+      "監控準確率: 高",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.none, .4, 0., 4.),
 
   Alert(
       "geofence",
       "DISENGAGEMENT REQUIRED",
-      "Not in Geofenced Area",
+      "不在地理圍欄區域之內",
       AlertStatus.userPrompt, AlertSize.mid,
       Priority.HIGH, VisualAlert.steerRequired, AudibleAlert.chimeWarningRepeat, .1, .1, .1),
 
   Alert(
       "startup",
-      "Be ready to take over at any time",
-      "Always keep hands on wheel and eyes on road",
+      "隨時準備好接管",
+      "請您將手放在方向盤上並持續注意路況",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW_LOWEST, VisualAlert.none, AudibleAlert.none, 0., 0., 15.),
 
   Alert(
       "startupNoControl",
-      "Dashcam mode",
-      "Always keep hands on wheel and eyes on road",
+      "行車記錄器模式",
+      "請您將手放在方向盤上並持續注意路況",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW_LOWEST, VisualAlert.none, AudibleAlert.none, 0., 0., 15.),
 
   Alert(
       "startupNoCar",
-      "Dashcam mode with unsupported car",
-      "Always keep hands on wheel and eyes on road",
+      "行車記錄器模式 (未支持的車型)",
+      "請您將手放在方向盤上並持續注意路況",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW_LOWEST, VisualAlert.none, AudibleAlert.none, 0., 0., 15.),
 
   Alert(
       "ethicalDilemma",
-      "TAKE CONTROL IMMEDIATELY",
+      "即刻接管控制",
       "Ethical Dilemma Detected",
       AlertStatus.critical, AlertSize.full,
       Priority.HIGHEST, VisualAlert.steerRequired, AudibleAlert.chimeWarningRepeat, 1., 3., 3.),
 
   Alert(
       "steerTempUnavailableNoEntry",
-      "openpilot Unavailable",
-      "Steering Temporarily Unavailable",
+      "無法使用 openpilot",
+      "轉向控制暫時失效",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 0., 3.),
 
   Alert(
       "manualRestart",
-      "TAKE CONTROL",
-      "Resume Driving Manually",
+      "接管控制",
+      "請自行恢復駕駛",
       AlertStatus.userPrompt, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.none, 0., 0., .2),
 
   Alert(
       "resumeRequired",
-      "STOPPED",
-      "Press Resume to Move",
+      "已停止",
+      "請按 RES 繼續",
       AlertStatus.userPrompt, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.none, 0., 0., .2),
 
   Alert(
       "belowSteerSpeed",
-      "TAKE CONTROL",
-      "Steer Unavailable Below ",
+      "接管控制",
+      "轉向控制暫時失效，車速低於 ",
       AlertStatus.userPrompt, AlertSize.mid,
       Priority.MID, VisualAlert.steerRequired, AudibleAlert.chimeWarning1, 0., 0., .1),
 
@@ -230,432 +232,432 @@ ALERTS = [
   # Non-entry only alerts
   Alert(
       "wrongCarModeNoEntry",
-      "openpilot Unavailable",
-      "Main Switch Off",
+      "無法使用 openpilot",
+      "主開關關閉",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 0., 3.),
 
   Alert(
       "dataNeededNoEntry",
-      "openpilot Unavailable",
-      "Data Needed for Calibration. Upload Drive, Try Again",
+      "無法使用 openpilot",
+      "需要更多的數據來協助校準，請將行車記錄上傳後再試",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 0., 3.),
 
   Alert(
       "outOfSpaceNoEntry",
-      "openpilot Unavailable",
-      "Out of Storage Space",
+      "無法使用 openpilot",
+      "儲存空間不足",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 0., 3.),
 
   Alert(
       "pedalPressedNoEntry",
-      "openpilot Unavailable",
+      "無法使用 openpilot",
       "Pedal Pressed During Attempt",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, "brakePressed", AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "speedTooLowNoEntry",
-      "openpilot Unavailable",
-      "Speed Too Low",
+      "無法使用 openpilot",
+      "車速過慢",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "brakeHoldNoEntry",
-      "openpilot Unavailable",
-      "Brake Hold Active",
+      "無法使用 openpilot",
+      "駐車煞車已啟用",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "parkBrakeNoEntry",
-      "openpilot Unavailable",
-      "Park Brake Engaged",
+      "無法使用 openpilot",
+      "電子駐車已啟動",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "lowSpeedLockoutNoEntry",
-      "openpilot Unavailable",
-      "Cruise Fault: Restart the Car",
+      "無法使用 openpilot",
+      "巡航系統錯誤: 請重新發動車輛",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "lowBatteryNoEntry",
-      "openpilot Unavailable",
-      "Low Battery",
+      "無法使用 openpilot",
+      "電池電量過低",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "sensorDataInvalidNoEntry",
-      "openpilot Unavailable",
-      "No Data from EON Sensors",
+      "無法使用 openpilot",
+      "沒有收到任何來自 EON 傳感器的數據",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   # Cancellation alerts causing soft disabling
   Alert(
       "overheat",
-      "TAKE CONTROL IMMEDIATELY",
-      "System Overheated",
+      "即刻接管控制",
+      "系統過熱",
       AlertStatus.critical, AlertSize.full,
       Priority.MID, VisualAlert.steerRequired, AudibleAlert.chimeWarning2, .1, 2., 2.),
 
   Alert(
       "wrongGear",
-      "TAKE CONTROL IMMEDIATELY",
-      "Gear not D",
+      "即刻接管控制",
+      "檔位不在 D 檔",
       AlertStatus.critical, AlertSize.full,
       Priority.MID, VisualAlert.steerRequired, AudibleAlert.chimeWarning2, .1, 2., 2.),
 
   Alert(
       "calibrationInvalid",
-      "TAKE CONTROL IMMEDIATELY",
-      "Calibration Invalid: Reposition EON and Recalibrate",
+      "即刻接管控制",
+      "校準無效: 請將 EON 放於新的位置並重新校準",
       AlertStatus.critical, AlertSize.full,
       Priority.MID, VisualAlert.steerRequired, AudibleAlert.chimeWarning2, .1, 2., 2.),
 
   Alert(
       "calibrationIncomplete",
-      "TAKE CONTROL IMMEDIATELY",
-      "Calibration in Progress",
+      "即刻接管控制",
+      "正在校準相機中",
       AlertStatus.critical, AlertSize.full,
       Priority.MID, VisualAlert.steerRequired, AudibleAlert.chimeWarning2, .1, 2., 2.),
 
   Alert(
       "doorOpen",
-      "TAKE CONTROL IMMEDIATELY",
-      "Door Open",
+      "即刻接管控制",
+      "車門開啟",
       AlertStatus.critical, AlertSize.full,
       Priority.MID, VisualAlert.steerRequired, AudibleAlert.chimeWarning2, .1, 2., 2.),
 
   Alert(
       "seatbeltNotLatched",
-      "TAKE CONTROL IMMEDIATELY",
-      "Seatbelt Unlatched",
+      "即刻接管控制",
+      "安全帶未繫",
       AlertStatus.critical, AlertSize.full,
       Priority.MID, VisualAlert.steerRequired, AudibleAlert.chimeWarning2, .1, 2., 2.),
 
   Alert(
       "espDisabled",
-      "TAKE CONTROL IMMEDIATELY",
-      "ESP Off",
+      "即刻接管控制",
+      "ESP 關閉",
       AlertStatus.critical, AlertSize.full,
       Priority.MID, VisualAlert.steerRequired, AudibleAlert.chimeWarning2, .1, 2., 2.),
 
   Alert(
       "lowBattery",
-      "TAKE CONTROL IMMEDIATELY",
-      "Low Battery",
+      "即刻接管控制",
+      "電池電量過低",
       AlertStatus.critical, AlertSize.full,
       Priority.MID, VisualAlert.steerRequired, AudibleAlert.chimeWarning2, .1, 2., 2.),
 
   # Cancellation alerts causing immediate disabling
   Alert(
       "radarCommIssue",
-      "TAKE CONTROL IMMEDIATELY",
-      "Radar Error: Restart the Car",
+      "即刻接管控制",
+      "雷達訊號錯誤: 請重新發動車輛",
       AlertStatus.critical, AlertSize.full,
       Priority.HIGHEST, VisualAlert.steerRequired, AudibleAlert.chimeWarningRepeat, 1., 3., 4.),
 
   Alert(
       "radarFault",
-      "TAKE CONTROL IMMEDIATELY",
-      "Radar Error: Restart the Car",
+      "即刻接管控制",
+      "雷達訊號錯誤: 請重新發動車輛",
       AlertStatus.critical, AlertSize.full,
       Priority.HIGHEST, VisualAlert.steerRequired, AudibleAlert.chimeWarningRepeat, 1., 3., 4.),
 
   Alert(
       "modelCommIssue",
-      "TAKE CONTROL IMMEDIATELY",
-      "Model Error: Check Internet Connection",
+      "即刻接管控制",
+      "AI 模型錯誤: 請檢查網路連線",
       AlertStatus.critical, AlertSize.full,
       Priority.HIGHEST, VisualAlert.steerRequired, AudibleAlert.chimeWarningRepeat, 1., 3., 4.),
 
   Alert(
       "controlsFailed",
-      "TAKE CONTROL IMMEDIATELY",
-      "Controls Failed",
+      "即刻接管控制",
+      "控制發生錯誤",
       AlertStatus.critical, AlertSize.full,
       Priority.HIGHEST, VisualAlert.steerRequired, AudibleAlert.chimeWarningRepeat, 1., 3., 4.),
 
   Alert(
       "controlsMismatch",
-      "TAKE CONTROL IMMEDIATELY",
-      "Controls Mismatch",
+      "即刻接管控制",
+      "控制不匹配",
       AlertStatus.critical, AlertSize.full,
       Priority.HIGHEST, VisualAlert.steerRequired, AudibleAlert.chimeWarningRepeat, 1., 3., 4.),
 
   Alert(
       "commIssue",
-      "TAKE CONTROL IMMEDIATELY",
-      "CAN Error: Check Connections",
+      "即刻接管控制",
+      "CAN 訊號錯誤: 請檢查接線",
       AlertStatus.critical, AlertSize.full,
       Priority.HIGHEST, VisualAlert.steerRequired, AudibleAlert.chimeWarningRepeat, 1., 3., 4.),
 
   Alert(
       "steerUnavailable",
-      "TAKE CONTROL IMMEDIATELY",
-      "LKAS Fault: Restart the Car",
+      "即刻接管控制",
+      "LKAS 錯誤: 請重新發動車輛",
       AlertStatus.critical, AlertSize.full,
       Priority.HIGHEST, VisualAlert.steerRequired, AudibleAlert.chimeWarningRepeat, 1., 3., 4.),
 
   Alert(
       "brakeUnavailable",
-      "TAKE CONTROL IMMEDIATELY",
-      "Cruise Fault: Restart the Car",
+      "即刻接管控制",
+      "巡航系統錯誤: 請重新發動車輛",
       AlertStatus.critical, AlertSize.full,
       Priority.HIGHEST, VisualAlert.steerRequired, AudibleAlert.chimeWarningRepeat, 1., 3., 4.),
 
   Alert(
       "gasUnavailable",
-      "TAKE CONTROL IMMEDIATELY",
-      "Gas Fault: Restart the Car",
+      "即刻接管控制",
+      "油門錯誤: 請重新發動車輛",
       AlertStatus.critical, AlertSize.full,
       Priority.HIGHEST, VisualAlert.steerRequired, AudibleAlert.chimeWarningRepeat, 1., 3., 4.),
 
   Alert(
       "reverseGear",
-      "TAKE CONTROL IMMEDIATELY",
-      "Reverse Gear",
+      "即刻接管控制",
+      "切換至倒車檔",
       AlertStatus.critical, AlertSize.full,
       Priority.HIGHEST, VisualAlert.steerRequired, AudibleAlert.chimeWarningRepeat, 1., 3., 4.),
 
   Alert(
       "cruiseDisabled",
-      "TAKE CONTROL IMMEDIATELY",
-      "Cruise Is Off",
+      "即刻接管控制",
+      "巡航系統關閉",
       AlertStatus.critical, AlertSize.full,
       Priority.HIGHEST, VisualAlert.steerRequired, AudibleAlert.chimeWarningRepeat, 1., 3., 4.),
 
   Alert(
       "plannerError",
-      "TAKE CONTROL IMMEDIATELY",
-      "Planner Solution Error",
+      "即刻接管控制",
+      "Planner Solution 出現錯誤",
       AlertStatus.critical, AlertSize.full,
       Priority.HIGHEST, VisualAlert.steerRequired, AudibleAlert.chimeWarningRepeat, 1., 3., 4.),
 
   # not loud cancellations (user is in control)
   Alert(
       "noTarget",
-      "openpilot Canceled",
-      "No close lead car",
+      "openpilot 已取消",
+      "沒有偵測到前車",
       AlertStatus.normal, AlertSize.mid,
       Priority.HIGH, VisualAlert.none, AudibleAlert.chimeDisengage, .4, 2., 3.),
 
   Alert(
       "speedTooLow",
-      "openpilot Canceled",
-      "Speed too low",
+      "openpilot 已取消",
+      "車速過慢",
       AlertStatus.normal, AlertSize.mid,
       Priority.HIGH, VisualAlert.none, AudibleAlert.chimeDisengage, .4, 2., 3.),
 
   Alert(
       "invalidGiraffeHonda",
-      "Invalid Giraffe Configuration",
-      "Set 0111 for openpilot. 1011 for stock",
+      "Giraffe 開關錯誤",
+      "openpilot 模式為 0111，原廠模式為 1011",
       AlertStatus.normal, AlertSize.mid,
       Priority.HIGH, VisualAlert.none, AudibleAlert.chimeDisengage, .4, 2., 3.),
 
   # Cancellation alerts causing non-entry
   Alert(
       "overheatNoEntry",
-      "openpilot Unavailable",
-      "System overheated",
+      "無法使用 openpilot",
+      "系統過熱",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "wrongGearNoEntry",
-      "openpilot Unavailable",
-      "Gear not D",
+      "無法使用 openpilot",
+      "車輛不在 D 檔",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "calibrationInvalidNoEntry",
-      "openpilot Unavailable",
-      "Calibration Invalid: Reposition EON and Recalibrate",
+      "無法使用 openpilot",
+      "校準無效: 請將 EON 放於新的位置並重新校準",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "calibrationIncompleteNoEntry",
-      "openpilot Unavailable",
-      "Calibration in Progress",
+      "無法使用 openpilot",
+      "正在校準相機中",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "doorOpenNoEntry",
-      "openpilot Unavailable",
-      "Door open",
+      "無法使用 openpilot",
+      "車門未關",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "seatbeltNotLatchedNoEntry",
-      "openpilot Unavailable",
-      "Seatbelt unlatched",
+      "無法使用 openpilot",
+      "安全帶未繫",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "espDisabledNoEntry",
-      "openpilot Unavailable",
-      "ESP Off",
+      "無法使用 openpilot",
+      "ESP 關閉",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "geofenceNoEntry",
-      "openpilot Unavailable",
-      "Not in Geofenced Area",
+      "無法使用 openpilot",
+      "不在地理圍欄區域之內",
       AlertStatus.normal, AlertSize.mid,
       Priority.MID, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "radarCommIssueNoEntry",
-      "openpilot Unavailable",
-      "Radar Error: Restart the Car",
+      "無法使用 openpilot",
+      "雷達訊號錯誤: 請重新發動車輛",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "radarFaultNoEntry",
-      "openpilot Unavailable",
-      "Radar Error: Restart the Car",
+      "無法使用 openpilot",
+      "雷達訊號錯誤: 請重新發動車輛",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "modelCommIssueNoEntry",
-      "openpilot Unavailable",
-      "Model Error: Check Internet Connection",
+      "無法使用 openpilot",
+      "AI 模型錯誤: 請檢查網路連線",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "controlsFailedNoEntry",
-      "openpilot Unavailable",
-      "Controls Failed",
+      "無法使用 openpilot",
+      "控制發生錯誤",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "commIssueNoEntry",
-      "openpilot Unavailable",
-      "CAN Error: Check Connections",
+      "無法使用 openpilot",
+      "CAN 訊號錯誤: 請檢查接線",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "steerUnavailableNoEntry",
-      "openpilot Unavailable",
-      "LKAS Fault: Restart the Car",
+      "無法使用 openpilot",
+      "LKAS 錯誤: 請重新發動車輛",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "brakeUnavailableNoEntry",
-      "openpilot Unavailable",
-      "Cruise Fault: Restart the Car",
+      "無法使用 openpilot",
+      "巡航系統錯誤: 請重新發動車輛",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "gasUnavailableNoEntry",
-      "openpilot Unavailable",
-      "Gas Error: Restart the Car",
+      "無法使用 openpilot",
+      "油門錯誤: 請重新發動車輛",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "reverseGearNoEntry",
-      "openpilot Unavailable",
-      "Reverse Gear",
+      "無法使用 openpilot",
+      "切換至倒車檔",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "cruiseDisabledNoEntry",
-      "openpilot Unavailable",
-      "Cruise is Off",
+      "無法使用 openpilot",
+      "巡航系統關閉",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "noTargetNoEntry",
-      "openpilot Unavailable",
-      "No Close Lead Car",
+      "無法使用 openpilot",
+      "沒有偵測到前車",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "plannerErrorNoEntry",
-      "openpilot Unavailable",
-      "Planner Solution Error",
+      "無法使用 openpilot",
+      "Planner Solution 出現錯誤",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeError, .4, 2., 3.),
 
   Alert(
       "invalidGiraffeHondaNoEntry",
-      "openpilot Unavailable",
-      "Set 0111 for openpilot. 1011 for stock",
+      "無法使用 openpilot",
+      "penpilot 模式為 0111，原廠模式為 1011",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.chimeDisengage, .4, 2., 3.),
 
   # permanent alerts
   Alert(
       "steerUnavailablePermanent",
-      "LKAS Fault: Restart the car to engage",
+      "LKAS 錯誤: 請重新發動車輛",
       "",
       AlertStatus.normal, AlertSize.small,
       Priority.LOW_LOWEST, VisualAlert.none, AudibleAlert.none, 0., 0., .2),
 
   Alert(
       "brakeUnavailablePermanent",
-      "Cruise Fault: Restart the car to engage",
+      "巡航系統錯誤: 請重新發動車輛",
       "",
       AlertStatus.normal, AlertSize.small,
       Priority.LOW_LOWEST, VisualAlert.none, AudibleAlert.none, 0., 0., .2),
 
   Alert(
       "lowSpeedLockoutPermanent",
-      "Cruise Fault: Restart the car to engage",
+      "巡航系統錯誤: 請重新發動車輛",
       "",
       AlertStatus.normal, AlertSize.small,
       Priority.LOW_LOWEST, VisualAlert.none, AudibleAlert.none, 0., 0., .2),
 
   Alert(
       "calibrationIncompletePermanent",
-      "Calibration in Progress: ",
-      "Drive Above ",
+      "正在校準相機中: ",
+      "車速請高於 ",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOWEST, VisualAlert.none, AudibleAlert.none, 0., 0., .2),
 
   Alert(
       "invalidGiraffeHondaPermanent",
-      "Invalid Giraffe Configuration",
-      "Set 0111 for openpilot. 1011 for stock",
+      "Giraffe 開關錯誤",
+      "penpilot 模式為 0111，原廠模式為 1011",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW_LOWEST, VisualAlert.none, AudibleAlert.none, 0., 0., .2),
 
   Alert(
       "sensorDataInvalidPermanent",
-      "No Data from EON Sensors",
-      "Reboot your EON",
+      "沒有收到任何來自 EON 傳感器的數據",
+      "請重啟您的 EON",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOW_LOWEST, VisualAlert.none, AudibleAlert.none, 0., 0., .2),
 
   Alert(
       "vehicleModelInvalid",
-      "Vehicle Parameter Identification Failed",
+      "車輛參數識別失敗",
       "",
       AlertStatus.normal, AlertSize.small,
       Priority.LOWEST, VisualAlert.steerRequired, AudibleAlert.none, .0, .0, .1),

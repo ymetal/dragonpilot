@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 # Anndroid system locale, zh-TW = Traditional Chinese, zh-CN = Simplified Chinese
-lang=en
+lang=zh-TW
 
 update_font_reg=0
 update_font_bold=0
