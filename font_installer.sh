@@ -29,14 +29,14 @@ if [ $update_font_reg -eq "1" ] || [ $update_font_bold -eq "1" ] || [ $remove_ol
     if [ $update_font_reg -eq "1" ] || [ $update_font_bold -eq "1" ]; then
         # download regular font
         if [ $update_font_reg -eq "1" ]; then
-            curl -o /system/fonts/Miui-Regular.ttf https://raw.githubusercontent.com/eFiniLan/openpilot-patches/master/chinese-font-installer/assets/Miui-Regular.ttf
+            yes | cp -rf /data/openpilot/phonelibs/chinese-fonts/Miui-Regular.ttf /system/fonts/Miui-Regular.ttf
         fi
         # download bold font
         if [ $update_font_bold -eq "1" ]; then
-            curl -o /system/fonts/Miui-Bold.ttf https://raw.githubusercontent.com/eFiniLan/openpilot-patches/master/chinese-font-installer/assets/Miui-Bold.ttf
+            yes | cp -rf /data/openpilot/phonelibs/chinese-fonts/Miui-Bold.ttf /system/fonts/Miui-Bold.ttf
         fi
         # dont new font mapping
-        curl -o /system/etc/fonts.xml https://raw.githubusercontent.com/eFiniLan/openpilot-patches/master/chinese-font-installer/assets/fonts.xml
+        yes | cp -rf /data/openpilot/phonelibs/chinese-fonts/fonts.xml /system/etc/fonts.xml
         chmod 644 /system/etc/fonts.xml
         chmod 644 /system/fonts/Miui-*
     fi
