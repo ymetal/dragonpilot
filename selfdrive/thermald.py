@@ -83,7 +83,8 @@ _TEMP_THRS_L = [42.5, 57.5, 72.5, 10000]
 _FAN_SPEEDS = [0, 16384, 32768, 65535]
 # max fan speed only allowed if battery is hot
 _BAT_TEMP_THERSHOLD = 45.
-
+# shutdown timer 30 mins (60sec x 30mins)
+_SHUTDOWN_AT = 1800
 
 def handle_fan(max_cpu_temp, bat_temp, fan_speed):
   new_speed_h = next(speed for speed, temp_h in zip(_FAN_SPEEDS, _TEMP_THRS_H) if temp_h > max_cpu_temp)
@@ -134,6 +135,7 @@ def thermald_thread():
   location_sock = messaging.sub_sock(context, service_list['gpsLocation'].port)
   fan_speed = 0
   count = 0
+  shutdown_count = 0
 
   off_ts = None
   started_ts = None
@@ -176,6 +178,7 @@ def thermald_thread():
       msg.thermal.batteryVoltage = int(f.read())
     with open("/sys/class/power_supply/usb/present") as f:
       msg.thermal.usbOnline = bool(int(f.read()))
+      usb_online = msg.thermal.usbOnline
 
     current_filter.update(msg.thermal.batteryCurrent / 1e6)
 
@@ -277,6 +280,14 @@ def thermald_thread():
 
     count += 1
 
+    # shut down EON if usb is not present after certain time
+    if not usb_online:
+      shutdown_count += 1
+    else:
+      shutdown_count = 0
+
+    if shutdown_count >= _SHUTDOWN_AT:
+      os.system('LD_LIBRARY_PATH="" svc power shutdown')
 
 def main(gctx=None):
   thermald_thread()
