@@ -108,6 +108,7 @@ managed_processes = {
   "gpsd": ("selfdrive/sensord", ["./gpsd"]),
   "updated": "selfdrive.updated",
   "athena": "selfdrive.athena.athenad",
+  "dashcamd": "selfdrive.dashcamd",
 }
 android_packages = ("ai.comma.plus.offroad", "ai.comma.plus.frame")
 
@@ -145,6 +146,7 @@ car_started_processes = [
   'ubloxd',
   'gpsd',
   'deleter',
+  'dashcamd',
 ]
 
 def register_managed_process(name, desc, car_started=False):
