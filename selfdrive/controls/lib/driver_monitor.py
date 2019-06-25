@@ -155,8 +155,8 @@ class DriverStatus():
     elif self.awareness <= self.threshold_pre:
       # pre green alert
       alert = 'preDriverDistracted' if self.monitor_on else 'preDriverUnresponsive'
-    if alert is not None:
-      events.append(create_event(alert, [ET.WARNING]))
+    # if alert is not None:
+    #   events.append(create_event(alert, [ET.WARNING]))
 
     return events
 
