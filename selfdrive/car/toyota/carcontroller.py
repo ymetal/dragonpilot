@@ -8,6 +8,8 @@ from selfdrive.car.toyota.toyotacan import make_can_msg, create_video_target,\
                                            create_fcw_command
 from selfdrive.car.toyota.values import ECU, STATIC_MSGS, TSSP2_CAR
 from selfdrive.can.packer import CANPacker
+from selfdrive.dragonpilot import dragonpilot
+dragonpilot = dragonpilot()
 
 VisualAlert = car.CarControl.HUDControl.VisualAlert
 AudibleAlert = car.CarControl.HUDControl.AudibleAlert
@@ -207,6 +209,9 @@ class CarController(object):
       if self.angle_control:
         can_sends.append(create_steer_command(self.packer, 0., 0, frame))
       else:
+        # Turning signal disable steering control
+        if dragonpilot["turnSignalDisableSteer"] and (CS.left_blinker_on > 0 or CS.right_blinker_on > 0):
+          apply_steer = 0.
         can_sends.append(create_steer_command(self.packer, apply_steer, apply_steer_req, frame))
 
     if self.angle_control:
